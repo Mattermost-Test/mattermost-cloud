@@ -82,6 +82,7 @@ func (provisioner *KopsProvisioner) CreateClusterInstallation(cluster *model.Clu
 				"nginx.ingress.kubernetes.io/proxy-max-temp-file-size": "0",
 				"nginx.ingress.kubernetes.io/ssl-redirect":             "true",
 				"nginx.ingress.kubernetes.io/configuration-snippet":    "  proxy_force_ranges on;\n  add_header Strict-Transport-Security \"max-age=31536000; includeSubDomains\" always;\n  proxy_cache mattermost_cache;\n  proxy_cache_revalidate on;\n  proxy_cache_min_uses 2;\n  proxy_cache_use_stale timeout;\n  proxy_cache_lock on;\n  proxy_cache_key \"$host$request_uri$cookie_user\";",
+				"nginx.org/server-snippets":                            "gzip on;",
 			},
 		},
 	}
